@@ -1,0 +1,361 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+button{
+    all: unset
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body, html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 0.8vw;
+    padding-left: 2vw;
+    height: 100%;
+    padding-left: 7vw;
+}
+
+main header{
+    position: fixed;
+    background-color: #ffffff;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+aside{
+    position: fixed;
+    background-color: #ffffff;
+    left: 0;
+    height: 100%;
+    width: 6%;
+    border-right: 0.3vh solid #BEBEBE;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+aside button{
+    all: unset;
+    margin-top: 4vh;
+    cursor: pointer;
+}
+
+aside img{
+    height: 7vh;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding-inline: 2vh;
+    border-radius: 20px;
+    width: 60vw;
+    height: 8vh;
+}
+
+.search-container img {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.search-bar {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px 5px 5px 0;
+    text-align: left;
+}
+
+
+
+.icons {
+    display: flex;
+    gap: 1.5vw;
+    align-items: center;
+    height: 100%;
+}
+
+.icons img {
+    height: 4vh;
+    cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+
+.iconUser{
+    display: flex;
+    align-items: center;
+}
+#imgUser{
+    border-radius: 100vh;
+    background-image: url();
+    height: 5.5vh;
+    background-position: center;
+    background-size: cover;
+    width: 5.5vh;
+    border-radius: 3vh;
+}
+
+#arrow{
+    height: 2.5vh;
+}
+
+.icons .menu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 93%;
+    width: 8vw;
+    background-color: #b7b7b7;
+    user-select: none;
+    border-radius: 5%;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu::before{
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: 4vh;
+    width: 2vh;
+    z-index: -1;
+    height: 2vh;
+    background-color: white;
+    transform: rotate(45deg);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu li{
+    text-decoration: none;
+    list-style: none;
+    padding: 1.5vh;
+    background-color: white;
+}
+
+.menu li a{
+    display: flex;
+    align-items: center;
+    gap: 0.3vw;
+    color: inherit;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/* GALERIA */
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+.galeriaPosts {
+    padding-top: 7%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
+    gap: 1vw;
+    width: 100%;
+    padding-bottom: 2vh;
+
+    /* Suporte experimental para masonry layout */
+    grid-template-rows: masonry;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid; /* Evita quebra de colunas em alguns browsers */
+}
+
+.gallery-item a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 2.5vh;
+    margin-top: 0.3vh;
+    margin-left: 0.3vw
+}
+
+.containerImg {
+    background: white;
+    display: block;
+    width: 100%;
+    max-height: 70vh; /* ← AQUI! Altura máxima aumentada */
+    border-radius: 3vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.containerImg img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* Responsividade extra (opcional) */
+@media (max-width: 1200px) {
+    .galeriaPosts {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .galeriaPosts {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+.finalizarCadastro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);;
+}
+
+.finalizarCadastro .container {
+    background-color: #f0f0f0;
+    border: double 3px transparent;
+    border-radius: 4vh;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #2C8BCA, #79BF45, #FDB215, #F68223, #F13C29, #EF579F);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    width: 30vw;
+    height: 70vh;
+    padding-top: 4vh;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.container header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 25%;
+}
+
+.container header img{
+    height: 10vh;
+    width: 10vh;
+}
+
+.insertContainer{
+    display: flex;
+    flex-direction: column;
+    padding-block: 3vh;
+    padding-block-start: 1vh;
+    height: 75%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.insertContainer button{
+    padding: 2vh;
+    padding-inline: 4vw;
+    border-radius: 4vh;
+    background-image: linear-gradient(to right, #2C8BCA, #79BF45, #FDB215, #F68223, #F13C29, #EF579F);
+    color: white;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.insertContainer div:nth-child(1) button{
+    all: unset;
+    cursor: pointer;
+}
+
+.insertContainer div:nth-child(1) h3{
+    font-weight: 600;
+    font-size: 2vh;
+
+}
+
+.insertContainer div:nth-child(1) img{
+    height: 10vh;
+}
+
+.insertContainer div:nth-child(2), .insertContainer div:nth-child(3){
+    text-align: start;
+    align-items: baseline;
+}
+
+.insertContainer div:nth-child(2) h3, .insertContainer div:nth-child(3) h3{
+    padding-left: 1vw;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+.insertContainer  h2{
+    font-size: 2vh;
+    color: red;
+    font-family: 'Railway', sans-serif;
+}
+
+.insertContainer input{
+    all: unset;
+    width: 100%;
+}
+
+.insertContainer .containerInput{
+    align-self: center;
+    border-radius: 4vh;
+    border: 2px solid #B3B3B3;
+    overflow: hidden;
+    height: 5vh;
+    width: 20vw;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    padding-inline-start: 1vw;
+    justify-content: center;
+}
+
+.container header h2{
+    font-size: 2.5vh;
+    font-weight: 400;
+}
+
+.insertContainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+
+

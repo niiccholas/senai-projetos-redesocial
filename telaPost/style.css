@@ -1,0 +1,489 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+button{
+    all: unset
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body, html{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 0.8vw;
+    padding-left: 2vw;
+    height: 100%;
+    padding-left: 7vw;
+}
+
+main header{
+    position: fixed;
+    background-color: #ffffff;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+aside{
+    position: fixed;
+    background-color: #ffffff;
+    left: 0;
+    height: 100%;
+    width: 6%;
+    border-right: 0.3vh solid #BEBEBE;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+aside button{
+    all: unset;
+    margin-top: 4vh;
+    cursor: pointer;
+}
+
+aside img{
+    height: 7vh;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding-inline: 2vh;
+    border-radius: 20px;
+    width: 60vw;
+    height: 8vh;
+}
+
+.search-container img {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.search-bar {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px 5px 5px 0;
+    text-align: left;
+}
+
+
+
+.icons {
+    display: flex;
+    gap: 1.5vw;
+    align-items: center;
+    height: 100%;
+}
+
+.icons img {
+    height: 4vh;
+    cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+
+.iconUser{
+    display: flex;
+    align-items: center;
+}
+
+#imgUser{
+    border-radius: 100vh;
+    background-image: url();
+    height: 5.5vh;
+    background-position: center;
+    background-size: cover;
+    width: 5.5vh;
+    border-radius: 3vh;
+}
+
+#arrow{
+    height: 2.5vh;
+}
+
+.icons .menu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 93%;
+    width: 8vw;
+    background-color: #b7b7b7;
+    user-select: none;
+    border-radius: 5%;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu::before{
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: 4vh;
+    width: 2vh;
+    z-index: -1;
+    height: 2vh;
+    background-color: white;
+    transform: rotate(45deg);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu li{
+    text-decoration: none;
+    list-style: none;
+    padding: 1.5vh;
+    background-color: white;
+}
+
+.menu li a{
+    display: flex;
+    align-items: center;
+    gap: 0.3vw;
+    color: inherit;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* POSTAGEM */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.imagem{
+    width: 35vw;
+    height: 60vh;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 7vh;
+    border-bottom-left-radius: 7vh;
+}
+
+.post{
+    padding-top: 7%;
+    display: flex;
+}
+
+.container{
+    height: 60vh;
+    width: 40vw;
+}
+
+/* DADOS POST */
+
+.dadosPost{
+    display: flex;
+    padding: 2vh;
+    height: 15%;
+    justify-content: space-between;
+}
+
+.dadosPost section{
+    display: flex;
+    width: 14vw;
+    white-space: nowrap;
+    overflow: hidden;    /* Esconde o conteúdo que ultrapassa o limite */
+    font-size: 0.65vw;
+}
+
+.dadosPost section h1, .dadosPost section h2{
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências quando o texto é cortado */
+    white-space: nowrap;
+}
+
+.dadosPost section h1{
+    padding-right: 1vh;
+}
+
+.dadosPost section h2{
+    background-image: linear-gradient(to right, #1E88E5, #55A597, #FF8C15, #FFC107, #E53935, #EF579F);
+    -webkit-background-clip: text;  /* Necessário para Safari */
+    background-clip: text;
+    color: transparent; /* O fundo do texto é o gradiente, então a cor do texto precisa ser transparente */
+}
+
+.dadosPost .icone{
+    height: 7vh;
+    width: 7vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+}
+
+.dadosPost .likes{
+    display: flex;
+    flex-direction: row;
+}
+
+.dadosPost .likes img{
+    width: 3vh;
+    height: 2.5vh;
+}
+
+.dadosPost .likes span{
+    padding-left: 0.5vh;
+    font-size: 1vw;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.dadosPost h3{
+    font-size: 1.6vh;
+    color: #A7A7A7;
+    padding-top: 1.5vh;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.dadosPost section, .dadosPost .likes{
+    align-items: center;
+}
+
+/* POST */
+
+.postagem{
+    flex-direction: column;
+    padding: 5%;
+    padding-bottom: 0vh;
+    height: 45%;
+}
+
+.postagem p{
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    font-size: 2.2vh;
+    width: 102%;
+    height: 80%;
+    align-items: end;
+
+    /* Propriedades para limitar o texto a 2 linhas e mostrar elipses */
+    display: -webkit-box;
+    -webkit-line-clamp: 7;  /* Limita o texto a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+
+    /* Standard, non-prefixed properties */
+    line-clamp: 2; /* Modern browsers that support the unprefixed property */
+    box-orient: vertical; /* Non-prefixed version */
+}
+
+.postagem h1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 3.5vh;
+}
+
+/* COMENTARIOS MOSTRADOS */
+
+.containerComentario {
+    height: 40%;
+    padding: 2%;
+    padding-bottom: 0px;
+}
+
+.comentario {
+    background-color: #E4E4E4;
+    height: 100%;
+    width: auto;
+    border-radius: 6vh;
+    overflow: hidden;
+}
+
+.comentario h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    padding-top: 0.5vh;
+    height: 15%;
+    padding-left: 4vh;
+    width: 100%;
+    font-size: 1.9vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.listaComentarios {
+    padding-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    overflow-y: auto;
+    max-height: 18vh;
+    scroll-behavior: smooth;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.listaComentarios li{
+    height: 8vh;
+    padding-left: 0.5vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.iconeUser{
+    height: 8vh;
+    width: 8vh;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.listaComentarios section{
+    padding-left: 0.5vw;
+    width: 75%;
+    font-family: 'Inter', sans-serif;
+}
+
+.listaComentarios section h1{
+    font-size: 1.5vh;
+}
+
+.listaComentarios section p {
+    font-size: 2vh;
+    max-width: 100%;
+    height: 5vh; /* Ajuste o height para que ele não afete o comportamento de clamping */
+    line-height: 2.5vh; /* Ajuste conforme necessário */
+        font-family: 'Inter', sans-serif;
+    /* Propriedades para limitar o texto a 2 linhas e mostrar elipses */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /* Limita o texto a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+
+    /* Standard, non-prefixed properties */
+    line-clamp: 2; /* Modern browsers that support the unprefixed property */
+    box-orient: vertical; /* Non-prefixed version */
+}
+
+.listaComentarios::-webkit-scrollbar {
+    display: none;
+}
+
+.listaComentarios .likes{
+    width: 10%;
+    display: flex;
+    gap: 0.2vw;
+    height: 40%;
+}
+
+.listaComentarios .likes button{
+    all: unset;
+    padding-left: 0.5vw;
+    height: 2vh;
+}
+
+.listaComentarios .likes button img{
+    height: 100%;
+}
+
+.listaComentarios .likes h3{
+    all: unset;
+    padding-top: 0.4vh;
+    font-family: 'Inter', sans-serif;
+    font-size: 2vh;
+}
+
+/* GALERIA */
+
+/* GALERIA */
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+.galeriaPosts {
+    margin-top: 3vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
+    gap: 1vw;
+    width: 80%;
+    padding-bottom: 2vh;
+
+    /* Suporte experimental para masonry layout */
+    grid-template-rows: masonry;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid; /* Evita quebra de colunas em alguns browsers */
+}
+
+.gallery-item a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 2.5vh;
+    margin-top: 0.3vh;
+    margin-left: 0.3vw
+}
+
+.containerImg {
+    background: white;
+    display: block;
+    width: 100%;
+    max-height: 70vh; /* ← AQUI! Altura máxima aumentada */
+    border-radius: 3vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.containerImg img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* Responsividade extra (opcional) */
+@media (max-width: 1200px) {
+    .galeriaPosts {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .galeriaPosts {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+

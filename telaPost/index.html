@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./imgHome/logo.png">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="search-container">
+                <img src="./img/magnifying-glass.png" alt="Buscar">
+                <input type="text" placeholder="Pesquisar" class="search-bar" id="search-bar">
+            </div>
+            <div class="icons">
+                <!-- <img src="./img/message.png" alt="Notificações"> -->
+                <!-- <img src="./img/bell.png" alt="Mensagens"> -->
+                <img src="./img/more.png" alt="Publicar">
+                <button class="iconUser" id="abrirMenu">
+                    <div id='imgUser' src="" alt=""></div>
+                    <img id="arrow" src="./img/arrow.png" alt="">
+                </button>
+                <div class="menu closed" id="menu">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="person-outline"></ion-icon>
+                                Perfil</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <ion-icon name="exit-outline"></ion-icon>
+                                Log-out</a>
+                        </li>
+                    </ul>
+                </div>
+
+                
+                
+            </div>
+
+        </header>
+
+        <!-- post -->
+        <div class="post">
+            <div class="imagem"></div>
+            <div class="container">
+                <div class="dadosPost">
+                    <div class="icone"></div>
+                    <section>
+                       <h1 id="nomeUserPost"></h1>
+                       <h2 id="arroba"></h2>   <!-- 17 (8) -->
+                    </section>
+                    <div class="likes">
+                         <img src="./img/heart.png" alt="Like"> <!-- icone coracao -->
+                         <span id="numeroLikes"></span> <!-- numero likes -->
+                    </div>
+                    <h3 id="dataPost"></h3> <!-- data publicacao -->
+                </div>
+                <section class="postagem">
+                    <h1 id="tituloPost"></h1>
+                    <p id="descricaoPost"></p> 
+                    <!-- 327 caracteres-->
+                </section>
+                <div class="containerComentario">
+                  <div class="comentario">  <!-- isso aqui continua -->
+                        <h3 id="quantidadeComentarios"></h3>  <!-- qntdd. comentarios -->
+                        <ul class="listaComentarios">
+    
+                            <!-- <li>
+                                   <div class="iconeUser"></div>
+                                   <section>
+                                    <h1>gusta</h1>
+                                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>  70 caracteres
+                                   </section>
+                                    <div class="likes">
+                                        <button>
+                                            <img src="./img/Vector.png" alt="">
+                                        </button>
+                                        <h3>12</h3>
+                                    </div>
+                            </li> -->
+                        </ul>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <ul class="galeriaPosts">
+            <!-- <li class="gallery-item">
+                <button class="containerImg">
+                    <img src="https://picsum.photos/400/500?random=11" alt="Imagem 1">
+                </button>
+                <a href="">@niiccholas</a>
+            </li> -->
+        </ul>
+
+    </main>
+    <aside>
+        <button id="home">
+            <img src="./img/logo.png" alt="">
+        </button>
+    </aside>
+</body>
+</html>

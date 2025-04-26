@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+a{
+    text-decoration: none
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+body {
+    overflow-x: hidden;
+      --sb-track-color: #232E33;
+      --sb-track-color: #ffffff;
+      --sb-thumb-color: #6d6d6d;
+      --sb-size: 7px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(228, 228, 228);
+    z-index: 1000;  
+    
+}
+.logo img {
+    height: 40px;
+    cursor: pointer;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+.buttons a {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.btn-enter {
+    background: linear-gradient(to right, #2C8BCA, #79BF45, #FDB215, #F68223, #F13C29, #EF579F);
+    color: white;
+}
+.btn-signup {
+    background: #CBCBCB;
+    border: 2px solid #F13C29;
+    color: #000000;
+}
+
+/* REC. SENHA */
+
+body, html{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.containerRec{
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.containerTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerTitle h1{
+    padding-top: 2vh;
+    font-size: 3.5vh;
+    font-family: "Raleway", sans-serif;
+}
+
+.containerTitle img{
+    height: 10vh;
+    width: 10vh;
+}
+
+.containerRec section h2{
+    font-size: 2.8vh;
+    padding-bottom: 1.5vh;
+    font-family: 'Raleway', sans-serif;
+}
+
+.searchBar{
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 1vh;
+    width: 25vw;
+    overflow: hidden;
+}
+
+.searchBar input{
+    all: unset;
+    width: 100%;
+    font-family: "Raleway", sans-serif;
+    font-size: 2.5vh;
+    padding: 2vh;
+    padding-left: 0.5vw;
+    padding-block: 1.5vh;
+}
+
+#digitarCodigo{
+    opacity: 0;
+    cursor: default;
+    transition: opacity 1s ease-in
+}
+
+.containerRec button{
+    all: unset;
+    cursor: pointer;
+    font-size: 2.2vh;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+}
+
+#digitarSenha{
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in
+}
+
+.containerRec h3{
+    opacity: 0;
+    text-align: center;
+    transition: 0.7s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-0.2em); }
+    40% { transform: translateX(0.2em); }
+    60% { transform: translateX(-0.2em); }
+    80% { transform: translateX(0.2em); }
+    100% { transform: translateX(0); }
+  }
+

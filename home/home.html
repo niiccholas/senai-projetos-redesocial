@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="./script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./imgHome/logo.png">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="search-container">
+                <img src="./imgHome/magnifying-glass.png" alt="Buscar">
+                <input type="text" placeholder="Pesquisar" class="search-bar" id="search-bar">
+            </div>
+            <div class="icons">
+                <!-- <img src="./imgHome/message.png" alt="Notificações"> -->
+                <!-- <img src="./imgHome/bell.png" alt="Mensagens"> -->
+                <img src="./imgHome/more.png" alt="Publicar">
+
+                <button class="iconUser" id="abrirMenu">
+                    <div id='imgUser' src="" alt=""></div>
+                    <img id="arrow" src="./imgHome/arrow.png" alt="">
+                </button>
+                <div class="menu closed" id="menu">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <ion-icon name="person-outline"></ion-icon>
+                                Perfil</a>
+                        </li>
+                        <li>
+                            <a href="../login/login.html" id="exit">
+                                <ion-icon name="exit-outline"></ion-icon>
+                                Log-out</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </header>
+        <ul class="galeriaPosts">
+            <!-- <li class="gallery-item">
+                <button class="containerImg">
+                    <img src="https://picsum.photos/400/500?random=11" alt="Imagem 1">
+                </button>
+                <a href="">@niiccholas</a>
+            </li> -->
+        </ul>
+    </main>
+    <aside>
+        <button id="home">
+            <img src="./imgHome/logo.png" alt="">
+        </button>
+
+    </aside>
+    <div class="finalizarCadastro" id="finalizarCadastro">
+        <div class="container">
+            <header>
+                <img src="./imgHome/logo.png" alt="Logo Pictory">
+                <section>
+                    <h1>Quase lá!</h1>
+                    <h2>Insira mais alguns dados necessários:</h2>
+                </section>
+            </header>
+
+            <div class="insertContainer">
+                <div>
+                    <h3>Foto de Perfil:</h3>
+                    <button>
+                        <img src="./imgHome/adicionar-foto.png" alt="Adicionar Foto">
+                    </button>
+
+                </div>
+
+                <div>
+                    <h3>Nome de Usuário:</h3>
+                    <div class="containerInput">
+                        <input type="text" name="" id="inputNome">
+                    </div>
+
+                </div>
+
+                <div>
+                    <h3>Senha de Recuperação:</h3>
+                    <div class="containerInput">
+                        <input type="text" name="" id="inputSenha">
+                    </div>
+                </div>
+                <h2 id="aviso">GUARDE ESSA SENHA EM UM LUGAR SEGURO!</h2>
+
+
+                <button id="submit">Continuar</button>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

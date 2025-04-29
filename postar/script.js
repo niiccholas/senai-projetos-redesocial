@@ -170,7 +170,6 @@ document.getElementById('abrirMenu').addEventListener('click', aparecerMenu)
 
 if (usuarioLogado == 'null') {
     window.location.href = '../index.html';
-    return
 }
 
 
@@ -179,5 +178,4 @@ atualizarConta()
 
 if (usuarioLogado == 'null') {
     window.location.href = '../index.html';
-    return
 }

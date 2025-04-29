@@ -55,7 +55,8 @@ async function mostrarPost(dataPost) {
 
     button.addEventListener('click', function(){
 
-    window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
+        window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
+        console.log('a')
  // fazer else pro github aqui
 
     })

@@ -61,6 +61,16 @@ async function criarUsuario() {
 
 }
 
+//rolar pra baixo apertando no botão 'explore'
+document.getElementById("explore-btn").addEventListener("click", function(){
+    const target = document.getElementById("second-stage")
+    const top = target.getBoundingClientRect().top + window.pageYOffset
+
+    window.scrollTo({
+        top:top,
+        behavior:"smooth"
+    })
+})
 
 
 continuarSubmit.addEventListener("click", criarUsuario)

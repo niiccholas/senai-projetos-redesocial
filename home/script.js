@@ -157,14 +157,6 @@ window.onload = async function() {
         
     })
 
-
-
-
-    if (usuarioLogado == 'null') {
-        window.location.href = '../index.html';
-        return
-    }
-
     try {
         const dadosUser = await getUser(usuarioLogado);
         if(dadosUser.nome == 'Usuário' || dadosUser.senhaRecuperacao == 'senhaPadrao'){
@@ -184,12 +176,17 @@ window.onload = async function() {
         window.location.href = '../index.html'; // Em caso de erro ao buscar os dados do usuário, redireciona
     }
 
+    //function para log-out do user
     document.getElementById('exit').addEventListener('click', function(){
 
         localStorage.setItem('idUsuario', null)
-
 
     })
 
     processarPosts();
 };
+
+if (usuarioLogado == 'null') {
+    window.location.href = '../index.html';
+    return
+}

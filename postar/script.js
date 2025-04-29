@@ -4,6 +4,8 @@ document.getElementById('telaPublicar').addEventListener('click', function() {
     
 })
 
+const usuarioLogado = localStorage.getItem('idUsuario')
+
 async function atualizarConta(){
 
     const fotoPerfil = localStorage.getItem('imagemUser')
@@ -23,6 +25,8 @@ document.getElementById('botaoFechar').addEventListener("click", function() {
 
 const botao = document.getElementById('botao')
 
+let imagemPost = null
+
 botao.addEventListener('change', function (ev) {
 
     const icon = document.getElementById('icon')
@@ -38,9 +42,12 @@ botao.addEventListener('change', function (ev) {
         }
         ,body:form
       }).then(data=>data.json()).then(data=> {
+
+        imagemPost = data.data.link
         
         setTimeout(() => {
             imagem.style.backgroundImage = `url(${data.data.link})`
+            document.getElementById('icon').style.display = 'none'
         }, 100); // Atraso de 100ms, ou ajuste conforme necessário
         
       })
@@ -51,6 +58,49 @@ botao.addEventListener('change', function (ev) {
 
     
 })
+
+async function criarPost(){
+
+    const inputDescricao = document.getElementById('inputDescricao')
+
+    const url = `https://back-spider.vercel.app/publicacoes/cadastrarPublicacao`
+
+    const hoje = new Date();
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0'); // Janeiro é 0
+    const ano = hoje.getFullYear();
+
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    const formData = {
+        descricao: inputDescricao.value,
+        dataPublicacao: dataFormatada,
+        imagem: imagemPost,
+        local: '',
+        idUsuario: usuarioLogado
+    }
+
+    const response = fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+
+    console.log(response)
+
+    // {
+    //     "descricao": "Preparando Aulas para as Crianças",
+    //     "dataPublicacao": "23/01/2025",
+    //     "imagem": "https://www.aluralingua.com.br/artigos/assets/professor.jpg",
+    //     "local": "Faculdade",
+    //     "idUsuario": 2
+    // }
+
+
+
+}
 
 function aparecerMenu(){
     const menu = document.getElementById('menu')
@@ -67,7 +117,10 @@ function aparecerMenu(){
 
 document.getElementById('abrirMenu').addEventListener('click', aparecerMenu)
 
-
+if (usuarioLogado == 'null') {
+    window.location.href = '../index.html';
+    return
+}
 
 
 

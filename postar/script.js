@@ -44,6 +44,8 @@ async function criarPost(){
         idUsuario: usuarioLogado
     }
 
+    console.log(criarPost)
+
     const response = fetch(url, {
         method: 'POST',
         headers: {

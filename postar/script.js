@@ -23,8 +23,6 @@ document.getElementById('botaoFechar').addEventListener("click", function() {
     
 });
 
-let imagemPost = null
-
 async function criarPost(){
 
     const inputDescricao = document.getElementById('inputDescricao')

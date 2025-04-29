@@ -21,6 +21,8 @@ document.getElementById('botaoFechar').addEventListener("click", function() {
     
 });
 
+let imagemPost = null
+
 async function criarPost(){
 
     const inputDescricao = document.getElementById('inputDescricao')
@@ -88,6 +90,8 @@ botao.addEventListener('change', function (ev) {
         }
         ,body:form
       }).then(data=>data.json()).then(data=> {
+
+        imagemPost = data.data.link
         
         setTimeout(() => {
             document.getElementById('icon').style.display = 'none'

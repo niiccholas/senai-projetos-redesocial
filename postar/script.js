@@ -127,3 +127,8 @@ document.getElementById('abrirMenu').addEventListener('click', aparecerMenu)
 
 
 atualizarConta()
+
+if (usuarioLogado == 'null') {
+    window.location.href = '../index.html';
+    return
+}

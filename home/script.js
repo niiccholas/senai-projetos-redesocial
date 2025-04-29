@@ -55,9 +55,8 @@ async function mostrarPost(dataPost) {
 
     button.addEventListener('click', function(){
 
-        if(window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"){
-            window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
-        } // fazer else pro github aqui
+    window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
+ // fazer else pro github aqui
 
     })
 

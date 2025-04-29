@@ -40,7 +40,7 @@ async function criarPost(){
         descricao: inputDescricao.value,
         dataPublicacao: dataFormatada,
         imagem: imagemPost,
-        local: '',
+        local: 'Pictory',
         idUsuario: usuarioLogado
     }
 

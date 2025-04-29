@@ -45,8 +45,6 @@ async function criarUsuario() {
 
     const response = await fetch(url, options)
 
-    console.log(response)
-
     const showError = document.getElementById('showError')
 
     if(response.ok){
@@ -67,8 +65,6 @@ async function criarUsuario() {
 
 continuarSubmit.addEventListener("click", criarUsuario)
 
-
-console.log(localStorage.getItem('idUsuario'))
 
 // // deletando usuario
 

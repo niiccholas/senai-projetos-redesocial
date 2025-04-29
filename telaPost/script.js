@@ -139,7 +139,6 @@ async function putComentar(post){
         const updatedPost = await response.json();  // Atualiza com os dados mais recentes do post
         return updatedPost;  
     } else {
-        console.log('Erro ao adicionar o comentário');
         return null;  
     }
 }
@@ -259,14 +258,12 @@ async function criarPostagem(){
                             comentario.classList.remove('listar')
 
                             const temQueSumir = document.getElementsByClassName('coment')
-                            console.log(temQueSumir)
 
                             Array.from(temQueSumir).forEach(element => {
                                 element.classList.add('comentar')
                             })
 
                             const temQueAparecer = document.getElementsByClassName('list')
-                            console.log(temQueAparecer)
 
                             Array.from(temQueAparecer).forEach(element => {
 
@@ -323,10 +320,8 @@ async function mostrarPost(dataPost) {
     galeriaPosts.appendChild(itemGaleria)
 
     button.addEventListener('click', function(){
-
-        if(window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"){
-            window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
-        } // fazer else pro github aqui
+        
+        window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
 
     })
 
@@ -374,8 +369,6 @@ async function putCurtida(idPost){
 
     const response = await fetch(url, options)
 
-    console.log(response)
-
 }
 
 async function curtirPostagem(post){
@@ -383,8 +376,6 @@ async function curtirPostagem(post){
     const botaoCurtida = document.getElementById('curtir')
 
     let postCurtidoStatus = false
-
-    console.log(post)
 
     if(post.curtidas){
 

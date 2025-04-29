@@ -56,9 +56,6 @@ async function mostrarPost(dataPost) {
     button.addEventListener('click', function(){
 
         window.location.href = `../telaPost/index.html?idPost=${dataPost.id}`
-        console.log('a')
- // fazer else pro github aqui
-
     })
 
 }
@@ -97,11 +94,7 @@ const submit = document.getElementById('submit')
 
 const usuarioLogado = localStorage.getItem('idUsuario')
 
-console.log(usuarioLogado)
-
 async function atualizarCadastro(){
-
-    console.log(usuarioLogado)
 
     const url = `https://back-spider.vercel.app/user/atualizarUser/${usuarioLogado}`
 
@@ -144,8 +137,6 @@ async function atualizarConta(){
     const fotoUser = (await getUser(usuarioLogado)).imagemPerfil
 
     localStorage.setItem('imagemUser', fotoUser)
-
-    console.log(usuarioLogado, 'a')
     
     document.getElementById('imgUser').style.backgroundImage = `url(${fotoUser})`
 }
@@ -155,8 +146,6 @@ if (usuarioLogado == null) {
 }
 
 window.onload = async function() {
-
-    console.log(localStorage.getItem('imagemUser'))
 
     const imagemUser = localStorage.getItem('imagemUser')
 
@@ -177,7 +166,6 @@ window.onload = async function() {
     }
 
     try {
-        console.log('a')
         const dadosUser = await getUser(usuarioLogado);
         if(dadosUser.nome == 'Usuário' || dadosUser.senhaRecuperacao == 'senhaPadrao'){
             document.getElementById('finalizarCadastro').style.display = 'flex';

@@ -40,8 +40,6 @@ async function validarConta() {
 
         const funcao = await getUser(emailInput.value)
 
-        console.log(funcao)
-
         localStorage.setItem('idUsuario', funcao.id)
         localStorage.setItem('imagemUser', funcao.imagemPerfil)
         showError.style.display = 'none'

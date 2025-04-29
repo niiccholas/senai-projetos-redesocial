@@ -65,8 +65,6 @@ async function mostrarPost(dataPost) {
     const a = document.createElement('a')
     a.textContent = (await getUser(dataPost.idUsuario)).nome
 
-    console.log(await getUser(dataPost.idUsuario))
-
     itemGaleria.appendChild(button)
     itemGaleria.appendChild(a)
 
@@ -86,8 +84,6 @@ async function processarPosts(){
     const data = await getDadosPosts()
 
     data.forEach(post => {
-
-      console.log(post.idUsuario)
 
       if(parseInt(post.idUsuario) == usuarioLogado){
         mostrarPost(post)

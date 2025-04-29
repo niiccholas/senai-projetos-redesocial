@@ -67,8 +67,6 @@ async function atualizarSenha(){
 
     data = await resposta.json()
 
-    console.log(data)
-
 }
 
 document.getElementById('email').addEventListener('keydown', function(tecla) {

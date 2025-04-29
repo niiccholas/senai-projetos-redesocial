@@ -1,5 +1,7 @@
 'use strict'
 
+console.log('a')
+
 let cachePosts = null
 
 async function getDadosPosts() {
@@ -188,5 +190,4 @@ window.onload = async function() {
 
 if (usuarioLogado == 'null') {
     window.location.href = '../index.html';
-    return
 }

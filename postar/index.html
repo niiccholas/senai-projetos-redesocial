@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar publicação</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="search-container">
+                <img src="./img/magnifying-glass.png" alt="Buscar">
+                <input type="text" placeholder="Pesquisar" class="search-bar" id="search-bar">
+            </div>
+            <div class="icons">
+                <!-- <img src="./imgHome/message.png" alt="Notificações"> -->
+                <!-- <img src="./imgHome/bell.png" alt="Mensagens"> -->
+                <img src="./img/more.png" id="telaPublicar" alt="Publicar">
+
+                <button class="iconUser" id="abrirMenu">
+                    <div id='imgUser' src="" alt=""></div>
+                    <img id="arrow" src="./img/arrow.png" alt="">
+                </button>
+                <div class="menu closed" id="menu">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <ion-icon name="person-outline"></ion-icon>
+                                Perfil</a>
+                        </li>
+                        <li>
+                            <a href="../login/login.html" id="exit">
+                                <ion-icon name="exit-outline"></ion-icon>
+                                Log-out</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="left" id="imagem">
+                <div>
+                    <input id="botao" type="file" label=''>
+                </div>
+
+                <img src="./img/plus.png" id='icon'alt="Adicionar Imagem">
+
+            </div>
+            <div class="right">
+                <section>
+                    <h1>Criar nova publicação</h1>
+                    <img id="botaoFechar" src="./img/exit.png" alt="Sair" onclick="location.href='../home/home.html'">
+                </section>
+
+                    <textarea type="text" id="inputDescricao" placeholder="Digite aqui a descrição do seu post..."></textarea>
+
+                
+                <div class="contain">
+                    <h2>(máx. carácteres: 300)</h2>
+                    <button>Criar</button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </main>
+    <aside>
+        <button id="home">
+            <img src="./img/logo.png" alt="">
+        </button>
+    </aside>
+
+
+</body>
+</html>

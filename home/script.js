@@ -97,6 +97,8 @@ const submit = document.getElementById('submit')
 
 const usuarioLogado = localStorage.getItem('idUsuario')
 
+console.log(usuarioLogado)
+
 async function atualizarCadastro(){
 
     console.log(usuarioLogado)
@@ -141,9 +143,9 @@ async function atualizarConta(){
 
     const fotoUser = (await getUser(usuarioLogado)).imagemPerfil
 
-    console.log(fotoUser)
-
     localStorage.setItem('imagemUser', fotoUser)
+
+    console.log(usuarioLogado, 'a')
     
     document.getElementById('imgUser').style.backgroundImage = `url(${fotoUser})`
 }
@@ -154,7 +156,17 @@ if (usuarioLogado == null) {
 
 window.onload = async function() {
 
+    console.log(localStorage.getItem('imagemUser'))
+
+    const imagemUser = localStorage.getItem('imagemUser')
+
     const usuarioLogado = localStorage.getItem('idUsuario');
+
+    document.getElementById('telaPublicar').addEventListener('click', function() {
+
+        window.location.href = '../postar/index.html'
+        
+    })
 
 
 
@@ -165,12 +177,19 @@ window.onload = async function() {
     }
 
     try {
+        console.log('a')
         const dadosUser = await getUser(usuarioLogado);
         if(dadosUser.nome == 'Usuário' || dadosUser.senhaRecuperacao == 'senhaPadrao'){
             document.getElementById('finalizarCadastro').style.display = 'flex';
             submit.addEventListener('click', atualizarCadastro);
         } else {
-            atualizarConta();
+
+            if(imagemUser){
+                document.getElementById('imgUser').style.backgroundImage = `url(${imagemUser})`
+            }else{
+                atualizarConta();
+            }
+
         }
     } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);

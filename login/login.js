@@ -2,7 +2,7 @@ const emailInput = document.getElementById("email")
 const passwordInput = document.getElementById("password")
 const continuarSubmit = document.getElementById('submit')
 
-async function getIdUser(email) {
+async function getUser(email) {
     
     const url = 'https://back-spider.vercel.app/user/listarUsers'
 
@@ -12,7 +12,7 @@ async function getIdUser(email) {
 
     const usuario = dados.find(user => user.email === email);
 
-    return usuario.id
+    return usuario
 
 }
 
@@ -22,6 +22,7 @@ async function validarConta() {
         email: emailInput.value,
         senha: passwordInput.value
     }
+
 
     const url = 'https://back-spider.vercel.app/login'
 
@@ -35,11 +36,14 @@ async function validarConta() {
 
     const showError = document.getElementById('showError')
 
-    console.log(response)
-
     if(response.ok){
 
-        localStorage.setItem('idUsuario', (await getIdUser(emailInput.value)))
+        const funcao = await getUser(emailInput.value)
+
+        console.log(funcao)
+
+        localStorage.setItem('idUsuario', funcao.id)
+        localStorage.setItem('imagemUser', funcao.imagemPerfil)
         showError.style.display = 'none'
         window.location.href = '../home/home.html'
     }else if(response.status == 400){

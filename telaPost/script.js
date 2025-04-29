@@ -2,6 +2,7 @@
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get('idPost')
+const usuarioLogado = localStorage.getItem('idUsuario');
 
 let cachePosts = null;
 let cacheUsers = null;
@@ -115,36 +116,186 @@ async function preencherPost(data){
 
 }
 
+async function putComentar(post){
+    const inputComentar = document.getElementById('inputComentar');
+    const url = `https://back-spider.vercel.app/publicacoes/commentPublicacao/${post.id}`;
+
+    const comentario = {
+        idUser: usuarioLogado,
+        descricao: inputComentar.value
+    };
+
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(comentario)
+    };
+
+    const response = await fetch(url, options);
+    if (response.ok) {
+       
+        const updatedPost = await response.json();  // Atualiza com os dados mais recentes do post
+        return updatedPost;  
+    } else {
+        console.log('Erro ao adicionar o comentário');
+        return null;  
+    }
+}
+
+
+let jaApareceu = false
+
+async function comentarPost(post) {
+    const inputComentar = document.getElementById('inputComentar');
+
+    inputComentar.addEventListener('keydown', async function(event) {
+        if (event.key == 'Enter') {
+            event.preventDefault();
+
+            // Chama a função putComentar e espera o post ser atualizado
+            const comentar = await putComentar(post);
+
+            if(comentar){
+                const lerComentarios = document.getElementById('lerComentarios')
+
+                lerComentarios.textContent = `Ler comentários (${post.comentarios.length + 1})`
+                
+                if(!jaApareceu){
+                    setTimeout(() => {
+                        criarComentario({idUsuario: usuarioLogado, descricao: inputComentar.value})
+                    }, 500);
+                
+                    jaApareceu = true
+                }
+            }
+
+        }
+    });
+}
+
+let comentariosCarregados = false
+
+
 async function criarPostagem(){
 
     const data = await pegarDadosPublicacoes()
 
     const quantidadeComentario = document.getElementById('quantidadeComentarios')
 
+
+
+
     data.forEach(post => {
         if (post.id == id) {
+
+            comentarPost(post)
     
-            preencherPost(post);
-    
-            let length = 0;
-    
-            if (post.comentarios) {
-                length = post.comentarios.length;
-                quantidadeComentario.textContent = length + ' comentário(s)';
-    
-                post.comentarios.forEach(comentario => {
-                    criarComentario(comentario);
-                });
-            } else {
-                quantidadeComentario.textContent = length + ' comentário(s)';
+            preencherPost(post)
+
+            curtirPostagem(post)
+
+            if(post.comentarios){
+
+                if(post.comentarios.length > 0){
+
+                    const lerComentarios = document.getElementById('lerComentarios')
+
+                    lerComentarios.textContent = `Ler comentários (${post.comentarios.length})`
+
+                    const comentario = document.getElementById('comentario')
+
+                    const containerComentario = document.getElementById('containerComentario')
+
+                    lerComentarios.addEventListener('click', function(){
+
+                        comentario.classList.add('listar')
+
+                        const temQueSumir = document.getElementsByClassName('comentar')
+
+                        Array.from(temQueSumir).forEach(element => {
+                            element.classList.remove('comentar')
+                            element.classList.add('coment')
+                        })
+
+                        const temQueAparecer = document.getElementsByClassName('sumir')
+
+                        Array.from(temQueAparecer).forEach(element => {
+
+                            element.classList.remove('sumir')
+                            element.classList.add('list')
+                        })
+
+                        containerComentario.style.height = '40%'
+
+
+                        let length = 0;
+
+                        setTimeout(() => {
+
+                        
+                            length = post.comentarios.length;
+                            quantidadeComentario.textContent = length + ' comentário(s)';
+
+                            if(!comentariosCarregados){
+                                post.comentarios.forEach(comentario => {
+                                    criarComentario(comentario);
+                                    comentariosCarregados = true
+                                });
+                            
+                            }
+                
+                            
+                            
+                        }, 500);
+
+                        lerComentarios.style.display = 'none'
+                        
+                        const botaoComentar = document.getElementById('botaoComentar')
+
+                        botaoComentar.addEventListener('click', function() {
+                            
+                            comentario.classList.remove('listar')
+
+                            const temQueSumir = document.getElementsByClassName('coment')
+                            console.log(temQueSumir)
+
+                            Array.from(temQueSumir).forEach(element => {
+                                element.classList.add('comentar')
+                            })
+
+                            const temQueAparecer = document.getElementsByClassName('list')
+                            console.log(temQueAparecer)
+
+                            Array.from(temQueAparecer).forEach(element => {
+
+                                element.classList.add('sumir')
+                            })
+
+                            containerComentario.style.height = '20%'
+
+                            lerComentarios.style.display = 'block'
+                        })
+            
+                    })
+
+                }else{
+                    document.getElementById('lerComentarios').textContent = 'Seja o primeiro a comentar!'
+                    document.getElementById('lerComentarios').style.cursor = 'default'
+                }
+
+            }else{
+                document.getElementById('lerComentarios').textContent = 'Seja o primeiro a comentar!'
+                document.getElementById('lerComentarios').style.cursor = 'default'
             }
     
+            
         }
     });
 
 }
 
-criarPostagem()
 
 /* POSTAGENS */
 
@@ -207,6 +358,71 @@ function aparecerMenu(){
 
 }
 
+async function putCurtida(idPost){
+
+    const url = `https://back-spider.vercel.app/publicacoes/likePublicacao/${idPost}`
+
+    const options = {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idUser: usuarioLogado
+        })
+    }
+
+    const response = await fetch(url, options)
+
+    console.log(response)
+
+}
+
+async function curtirPostagem(post){
+
+    const botaoCurtida = document.getElementById('curtir')
+
+    let postCurtidoStatus = false
+
+    console.log(post)
+
+    if(post.curtidas){
+
+        if(post.curtidas.length > 0){
+
+            post.curtidas.forEach(function(jsonCurtida) {
+            
+                if(parseInt(jsonCurtida.idUsuario) == usuarioLogado){
+                    botaoCurtida.src = './img/heartFilled.png'
+        
+                    postCurtidoStatus = true
+                }
+        
+            })
+        }
+
+    }
+
+    
+
+    botaoCurtida.addEventListener('click', function(){
+
+        
+        if(!postCurtidoStatus){
+            botaoCurtida.src = './img/heartFilled.png'
+
+            putCurtida(post.id)
+
+            const numeroLikes = document.getElementById('numeroLikes')
+
+            numeroLikes.textContent = parseInt(numeroLikes.textContent) + 1
+        }
+
+        
+    })
+
+}
+
 async function atualizarConta(){
 
     const fotoUser = localStorage.getItem('imagemUser')
@@ -218,20 +434,24 @@ document.getElementById('home').addEventListener("click", function() {
     window.location.href = "../home/home.html";
 });
 
-const usuarioLogado = localStorage.getItem('idUsuario');
-
 document.getElementById('abrirMenu').addEventListener('click', aparecerMenu)
+
+criarPostagem()
+processarPosts()
+atualizarConta()
+
+document.getElementById('telaPublicar').addEventListener('click', function() {
+
+    window.location.href = '../postar/index.html'
+    
+})
 
 window.onload = function() {
 
     
     if (usuarioLogado == 'null') {
-        console.log('a')
-        console.log('ID do usuário inválido, redirecionando para o login');
         window.location.href = '../index.html';
         return
     }
 
-    processarPosts()
-    atualizarConta()
   };

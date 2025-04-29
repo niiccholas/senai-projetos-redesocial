@@ -1,0 +1,295 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+button{
+  all: unset
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body, html{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 0.8vw;
+  padding-left: 2vw;
+  height: 100%;
+  padding-left: 7vw;
+}
+
+main header{
+  position: fixed;
+  background-color: #ffffff;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+aside{
+  position: fixed;
+  background-color: #ffffff;
+  left: 0;
+  height: 100%;
+  width: 6%;
+  border-right: 0.3vh solid #BEBEBE;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+aside button{
+  all: unset;
+  margin-top: 4vh;
+  cursor: pointer;
+}
+
+aside img{
+  height: 7vh;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  padding-inline: 2vh;
+  border-radius: 20px;
+  width: 60vw;
+  height: 8vh;
+}
+
+.search-container img {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  opacity: 0.6;
+}
+
+.search-bar {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex-grow: 1;
+  padding: 5px 5px 5px 0;
+  text-align: left;
+}
+
+
+
+.icons {
+  display: flex;
+  gap: 1.5vw;
+  align-items: center;
+  height: 100%;
+}
+
+.icons img {
+  height: 4vh;
+  cursor: pointer;
+}
+
+/* DROPDOWN MENU */
+
+.iconUser{
+  display: flex;
+  align-items: center;
+}
+#imgUser{
+  border-radius: 100vh;
+  background-image: url();
+  height: 5.5vh;
+  background-position: center;
+  background-size: cover;
+  width: 5.5vh;
+  border-radius: 3vh;
+}
+
+#arrow{
+  height: 2.5vh;
+}
+
+.icons .menu{
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 93%;
+  width: 8vw;
+  user-select: none;
+  border-radius: 5%;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu::before{
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: 4vh;
+  width: 2vh;
+  z-index: -1;
+  height: 2vh;
+  background-color: white;
+  transform: rotate(45deg);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu li{
+  text-decoration: none;
+  list-style: none;
+  padding: 1.5vh;
+  background-color: white;
+}
+
+.menu li a{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.3vw;
+  color: inherit;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* TELA PERFIL */
+
+.telaPerfil{
+  margin-top: 7%;
+  width: 100%;
+  height: 100%;
+}
+
+.headerPerfil{
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerPerfil header{
+  z-index: -100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(224, 160, 76);
+  width: 100%;
+  opacity: 0.3;
+  height: 20vh;
+}
+
+.iconPerfil{
+  width: 25vh;
+  height: 25vh;
+  z-index: 2;
+  border-radius: 100%;
+  background-color: #46b883;
+  margin-top: 5vh;
+  border: 3px solid white;
+  background-image: url(../img/medium-shot-cool-girls-with-gen-z-makeup\ 1.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.headerPerfil h1{
+  font-size: 5vh;
+  font-weight: 400;
+}
+
+.headerPerfil h2{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  background: linear-gradient(90deg, #1E88E5, #55A597, #FF8C15, #FFC107, #E53935, #EF579F);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* GALERIA USER */
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.galeriaPosts {
+  margin-top: 5vh;
+  display: grid;
+  border-radius: 5vh;
+  padding: 5vh;
+  grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
+  gap: 1vw;
+  width: 100%;
+  padding-bottom: 2vh;
+  border: 1px solid black;
+  grid-template-rows: masonry;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid; /* Evita quebra de colunas em alguns browsers */
+}
+
+.gallery-item a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  font-size: 2.5vh;
+  margin-top: 0.3vh;
+  margin-left: 0.3vw
+}
+
+.containerImg {
+  background: white;
+  display: block;
+  width: 100%;
+  max-height: 70vh; /* ← AQUI! Altura máxima aumentada */
+  border-radius: 3vh;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+
+.containerImg img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* Responsividade extra (opcional) */
+@media (max-width: 1200px) {
+  .galeriaPosts {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .galeriaPosts {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}

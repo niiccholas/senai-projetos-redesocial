@@ -49,8 +49,6 @@ async function validacao(){
         showInput('senha')
     }
 
-    data = await resposta.json()
-
 }
 
 async function atualizarSenha(){

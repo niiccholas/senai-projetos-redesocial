@@ -22,7 +22,7 @@
             <div class="icons">
                 <!-- <img src="./img/message.png" alt="Notificações"> -->
                 <!-- <img src="./img/bell.png" alt="Mensagens"> -->
-                <img src="./img/more.png" alt="Publicar">
+                <img src="./img/more.png" id="telaPublicar" alt="Publicar">
                 <button class="iconUser" id="abrirMenu">
                     <div id='imgUser' src="" alt=""></div>
                     <img id="arrow" src="./img/arrow.png" alt="">
@@ -59,7 +59,7 @@
                        <h2 id="arroba"></h2>   <!-- 17 (8) -->
                     </section>
                     <div class="likes">
-                         <img src="./img/heart.png" alt="Like"> <!-- icone coracao -->
+                         <img src="./img/heart.png" id='curtir'alt="Like"> <!-- icone coracao -->
                          <span id="numeroLikes"></span> <!-- numero likes -->
                     </div>
                     <h3 id="dataPost"></h3> <!-- data publicacao -->
@@ -69,11 +69,15 @@
                     <p id="descricaoPost"></p> 
                     <!-- 327 caracteres-->
                 </section>
-                <div class="containerComentario">
-                  <div class="comentario">  <!-- isso aqui continua -->
-                        <h3 id="quantidadeComentarios"></h3>  <!-- qntdd. comentarios -->
-                        <ul class="listaComentarios">
-    
+                <div class="containerComentario" id="containerComentario">
+                    <h2 id="lerComentarios"></h2>
+                  <div class="comentario" id='comentario'>  <!-- isso aqui continua -->
+                        <div class="headerComentarios sumir">
+                            <h3 id="quantidadeComentarios"></h3>  <!-- qntdd. comentarios -->
+                            <img src="./img/comentario.png" alt="" id="botaoComentar">
+                        </div>
+                        
+                        <ul class="listaComentarios sumir">
                             <!-- <li>
                                    <div class="iconeUser"></div>
                                    <section>
@@ -88,6 +92,11 @@
                                     </div>
                             </li> -->
                         </ul>
+
+                        <img src="./img/comentario.png"
+                        class="iconComentario comentar" alt="">
+                        <input id="inputComentar" type="text" placeholder="Digite seu comentário aqui..." class="comentar">
+
                     </div>
     
                 </div>

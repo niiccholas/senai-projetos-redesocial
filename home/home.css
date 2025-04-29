@@ -125,6 +125,7 @@ aside img{
 
 .icons .menu{
     display: none;
+    z-index: 10000;
     position: absolute;
     right: 0;
     top: 93%;
@@ -263,6 +264,7 @@ button {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    z-index: 1000;
     height: 25%;
 }
 

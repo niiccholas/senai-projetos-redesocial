@@ -21,6 +21,53 @@ document.getElementById('botaoFechar').addEventListener("click", function() {
     
 });
 
+async function criarPost(){
+
+    const inputDescricao = document.getElementById('inputDescricao')
+
+    const url = `https://back-spider.vercel.app/publicacoes/cadastrarPublicacao`
+
+    const hoje = new Date();
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0'); // Janeiro é 0
+    const ano = hoje.getFullYear();
+
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    const formData = {
+        descricao: inputDescricao.value,
+        dataPublicacao: dataFormatada,
+        imagem: imagemPost,
+        local: '',
+        idUsuario: usuarioLogado
+    }
+
+    const response = fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+
+    console.log(response)
+
+    // {
+    //     "descricao": "Preparando Aulas para as Crianças",
+    //     "dataPublicacao": "23/01/2025",
+    //     "imagem": "https://www.aluralingua.com.br/artigos/assets/professor.jpg",
+    //     "local": "Faculdade",
+    //     "idUsuario": 2
+    // }
+}
+const botaoCriar = document.getElementById('createPost')
+
+botaoCriar.addEventListener('click', function(){
+
+    criarPost()
+    window.location.href = '../home/home.html'
+})
+
 const botao = document.getElementById('botao')
 
 botao.addEventListener('change', function (ev) {

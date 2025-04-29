@@ -65,7 +65,10 @@ const botaoCriar = document.getElementById('createPost')
 botaoCriar.addEventListener('click', function(){
 
     criarPost()
-    window.location.href = '../home/home.html'
+    setTimeout(() => {
+        window.location.href = '../home/home.html'
+    }, 2000);
+
 })
 
 const botao = document.getElementById('botao')
@@ -87,6 +90,7 @@ botao.addEventListener('change', function (ev) {
       }).then(data=>data.json()).then(data=> {
         
         setTimeout(() => {
+            document.getElementById('icon').style.display = 'none'
             imagem.style.backgroundImage = `url(${data.data.link})`
         }, 100); // Atraso de 100ms, ou ajuste conforme necessário
         

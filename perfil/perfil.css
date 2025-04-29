@@ -164,6 +164,7 @@ aside img{
   color: inherit;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
+  cursor: pointer;
 }
 
 /* TELA PERFIL */

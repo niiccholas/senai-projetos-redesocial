@@ -139,4 +139,10 @@ document.getElementById('imgUser').style.backgroundImage = `url(${imagemUser})`
 
 document.getElementById('abrirMenu').addEventListener('click', aparecerMenu)
 
+document.getElementById('exit').addEventListener('click', function(){
+
+    localStorage.setItem('idUsuario', null)
+
+})
+
 processarPosts()
